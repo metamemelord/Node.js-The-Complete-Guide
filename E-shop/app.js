@@ -2,12 +2,14 @@ const path = require("path");
 
 const express = require("express");
 const bodyParser = require("body-parser");
-
+const db = require("./util/database");
 const app = express();
 
 app.set("view engine", "ejs");
 app.set("views", "views");
-
+db.execute("select * from products;")
+  .then(data => console.log(data[0]))
+  .catch(error => console.log(error));
 const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
 
