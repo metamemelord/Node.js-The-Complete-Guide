@@ -15,7 +15,7 @@
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
-    "mongodb": "^3.1.13",
+    "mongoose": "^5.4.16",
     "mysql2": "^1.6.5",
     "sequelize": "^4.42.1"
   }
