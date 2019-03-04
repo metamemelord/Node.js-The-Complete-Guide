@@ -9,12 +9,15 @@
     "start-server": "node app.js"
   },
   "mongo-url": "mongodb+srv://metamemelord:hehehasdele@dashboard-db-wvq8d.azure.mongodb.net/node-course",
+  "user-id": "5c7c1208f479600a14793191",
   "author": "Gaurav Saini",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "connect-mongodb-session": "^2.1.1",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "express-session": "^1.15.6",
     "mongoose": "^5.4.16",
     "mysql2": "^1.6.5",
     "sequelize": "^4.42.1"

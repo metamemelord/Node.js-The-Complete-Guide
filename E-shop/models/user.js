@@ -1,11 +1,11 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   name: {
     type: String,
-    require: true
+    required: true
   },
   email: {
     type: String,
@@ -16,13 +16,12 @@ const userSchema = new Schema({
       {
         productId: {
           type: Schema.Types.ObjectId,
-          ref: "Product",
+          ref: 'Product',
           required: true
         },
         quantity: { type: Number, required: true }
       }
-    ],
-    default: []
+    ]
   }
 });
 
@@ -45,14 +44,9 @@ userSchema.methods.addToCart = function(product) {
   const updatedCart = {
     items: updatedCartItems
   };
-
   this.cart = updatedCart;
   return this.save();
 };
-
-// userSchema.methods.getCart = function() {
-//   return Promise.resolve(this.cart.items);
-// };
 
 userSchema.methods.removeFromCart = function(productId) {
   const updatedCartItems = this.cart.items.filter(item => {
@@ -62,35 +56,12 @@ userSchema.methods.removeFromCart = function(productId) {
   return this.save();
 };
 
-userSchema.methods.addOrder = function() {
-  return this.cart.items
-    .then(products => {
-      const order = {
-        items: products,
-        user: {
-          _id: new ObjectId(this._id),
-          name: this.name
-        }
-      };
-      return db.collection("orders").insertOne(order);
-    })
-    .then(result => {
-      this.cart = { items: [] };
-      return db
-        .collection("users")
-        .updateOne(
-          { _id: new ObjectId(this._id) },
-          { $set: { cart: { items: [] } } }
-        );
-    });
-};
-
 userSchema.methods.clearCart = function() {
-  this.cart.items = [];
+  this.cart = { items: [] };
   return this.save();
 };
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model('User', userSchema);
 
 // const mongodb = require('mongodb');
 // const getDb = require('../util/database').getDb;
