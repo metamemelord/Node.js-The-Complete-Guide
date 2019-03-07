@@ -13,13 +13,16 @@
   "author": "Gaurav Saini",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
     "connect-mongodb-session": "^2.1.1",
+    "csurf": "^1.9.0",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "mongoose": "^5.4.16",
-    "mysql2": "^1.6.5",
-    "sequelize": "^4.42.1"
+    "nodemailer": "^5.1.1",
+    "nodemailer-sendgrid-transport": "^0.2.0"
   }
 }
