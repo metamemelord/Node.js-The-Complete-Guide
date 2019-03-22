@@ -2,3 +2,4 @@ First-App/hello.txt
 */node_modules/
 .vscode/
 */.vscode/
+*/**/*.JPG
